@@ -24,6 +24,7 @@ app.use((req, res, next)=> {
 })
 
 // hbs helpers
+// functions to dymnamically display data in views
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
 });
@@ -54,6 +55,13 @@ app.get('/',(req, res) => {
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page'
+    });
+})
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects Page',
+        welcomeMessage: "Welcome to my portfolio page!"
     });
 })
 
